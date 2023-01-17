@@ -7,7 +7,7 @@ test
 *.patch
 tags
 *.dylib*
-build/
+build*/
 cJSON_test
 cJSON_test_utils
 libcjson.so.*

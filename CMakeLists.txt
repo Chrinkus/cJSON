@@ -138,10 +138,12 @@ else()
     add_library("${CJSON_LIB}-static" STATIC "${HEADERS}" "${SOURCES}")
     set_target_properties("${CJSON_LIB}-static" PROPERTIES OUTPUT_NAME "${CJSON_LIB}")
     set_target_properties("${CJSON_LIB}-static" PROPERTIES PREFIX "lib")
+    target_include_directories("${CJSON_LIB}-static" PUBLIC "${PROJECT_SOURCE_DIR}/")
 endif()
 if (NOT WIN32)
     target_link_libraries("${CJSON_LIB}" m)
 endif()
+target_include_directories("${CJSON_LIB}" PUBLIC "${PROJECT_SOURCE_DIR}/")
 
 configure_file("${CMAKE_CURRENT_SOURCE_DIR}/library_config/libcjson.pc.in"
     "${CMAKE_CURRENT_BINARY_DIR}/libcjson.pc" @ONLY)
